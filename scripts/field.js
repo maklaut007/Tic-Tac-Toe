@@ -2,8 +2,14 @@ class Field {
   constructor() {
     this.fieldElement = document.querySelector(".field");
     this.cells = Array.from(document.querySelectorAll(".cell")).map(
-      (cell, index) => new Cell(cell, index)
+      (cell, index) => new Cell(cell, index, this)
     );
-    console.log(this.cells);
+    this.currentPlayer = "X";
   }
+  nextTurn = () => {
+    this.switchPlayer();
+  };
+  switchPlayer = () => {
+    this.currentPlayer = this.currentPlayer === "X" ? "O" : "X";
+  };
 }
