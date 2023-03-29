@@ -2,18 +2,18 @@
 
 To do:
 
-Class of field
-Class of field
-
-Switch players
-Fields onClick paint
-
-Win conditions
+Fields onClick image
+Win conditions (check if completed)
 
 Completed:
+Switch players
 HTML + CSS for playground
+Class of field
+Class of field
 
 # Extra
 
-1. Sound Effects
-2. Animations on click
+Animations for images
+Animations arroud
+Mobile styling
+Sound Effects

@@ -13,7 +13,6 @@ class Cell {
       this.isFilled = true;
       this.cellElement.innerHTML = this.field.currentPlayer;
       this.field.nextTurn();
-      console.log(this.index);
     }
   };
 }

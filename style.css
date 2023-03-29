@@ -9,12 +9,20 @@
   height: 600px;
   background-color: green;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   border-collapse: collapse;
   border: 3px solid coral;
 }
 
 .cell {
-  background-color: bisque;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
   border: 3px solid coral;
+  font-size: 4em;
+}
+.cell:hover {
+  background-color: bisque;
 }
