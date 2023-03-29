@@ -26,3 +26,21 @@
 .cell:hover {
   background-color: bisque;
 }
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 100%;
+}
+.inner-circle {
+  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+  background-color: antiquewhite;
+}
+.cross {
+  font-size: 8rem;
+}

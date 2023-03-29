@@ -11,7 +11,11 @@ class Cell {
     event.preventDefault();
     if (!this.isFilled) {
       this.isFilled = true;
-      this.cellElement.innerHTML = this.field.currentPlayer;
+
+      this.field.currentPlayer === "X"
+        ? this.cellElement.appendChild(createX())
+        : this.cellElement.appendChild(createCircle());
+
       this.field.nextTurn();
     }
   };
