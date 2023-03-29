@@ -12,11 +12,15 @@ class Cell {
     if (!this.isFilled) {
       this.isFilled = true;
 
-      this.field.currentPlayer === "X"
+      this.field.players.currentPlayer === "X"
         ? this.cellElement.appendChild(createX())
         : this.cellElement.appendChild(createCircle());
 
       this.field.nextTurn();
     }
+  };
+  emptyCell = () => {
+    this.isFilled = false;
+    this.cellElement.innerHTML = "";
   };
 }

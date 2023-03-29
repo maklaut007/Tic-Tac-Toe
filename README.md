@@ -1,41 +1,24 @@
 # Tic-Tac-Toe
 
-To do:
-
-Fields onClick image
-Restart game
-
-Completed:
-Switch players
-Win conditions (check if completed)
-HTML + CSS for playground
-Class of field
-Class of field
-
-# Extra
-
-Animations for images
-Animations arroud
-Mobile styling
-Sound Effects
-
 ## MVP:
 
-# Bronze
+### Bronze
 
 - Basic styling
 - Can press field each turn
 - Switch turns between players
 - Check if win conditions are met.
 
-# Silver
+### Silver
 
 - Can restart game
+- Show winner
 - Decent animations on click
 - Sound effects
 - Display score
+- Mobile styling
 
-# Gold
+### Gold
 
 - 3D animations
 - Can play vs AI
