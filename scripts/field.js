@@ -27,19 +27,20 @@ class Field {
   }
   checkWin = () => {
     let simpleArray = this.getArrayOfInnerValues();
-    if (isWinCombination(simpleArray).winner) this.triggerWin();
-    // if (isFieldFull(simpleArray).winner) this.triggerTie();
+    if (isWinCombination(simpleArray)) this.triggerWin();
+    if (isFieldFull(simpleArray)) this.triggerTie();
   };
 
   triggerWin = () => {
     console.log("Winner is: " + this.players.currentPlayer);
+    // this.triggerNewGame();
   };
   triggerTie = () => {
     console.log("Tie");
   };
 
   triggerNewGame = (event) => {
-    event.preventDefault();
+    if (event) event.preventDefault();
     this.cells.forEach((cell) => {
       cell.emptyCell();
     });

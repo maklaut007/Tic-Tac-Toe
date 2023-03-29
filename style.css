@@ -3,11 +3,15 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  outline: none;
+  border: none;
 }
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 5vh;
+  background-color: rgb(31, 54, 86);
 }
 .field {
   width: 600px;
@@ -27,6 +31,7 @@ body {
   background-color: antiquewhite;
   border: 3px solid coral;
   font-size: 4em;
+  cursor: pointer;
 }
 .cell:hover {
   background-color: bisque;
@@ -49,6 +54,32 @@ body {
 .cross {
   font-size: 8rem;
 }
+
+.players {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  font-size: 3rem;
+  color: antiquewhite;
+}
+.player {
+  opacity: 50%;
+}
 .highlight {
-  text-shadow: 1px 1px 2px red;
+  text-shadow: 1px 1px 2px white;
+  color: antiquewhite;
+  opacity: 100%;
+}
+.button-wrap {
+  padding: 20px 0;
+  width: 600px;
+}
+.new-game {
+  width: 200px;
+  height: 60px;
+  background-color: coral;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
 }
