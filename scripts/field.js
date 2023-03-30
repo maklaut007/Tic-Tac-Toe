@@ -28,18 +28,19 @@ class Field {
   checkWin = () => {
     let simpleArray = this.getArrayOfInnerValues();
     if (isWinCombination(simpleArray)) this.triggerWin();
-    if (isFieldFull(simpleArray)) this.triggerTie();
+    else if (isFieldFull(simpleArray)) this.triggerTie();
   };
 
   triggerWin = () => {
-    this.triggerEndgame(this.players.currentPlayer);
+    this.showResult(this.players.currentPlayer);
+    this.players.addWinnerScore();
     document.querySelector(".win-audio").play();
   };
   triggerTie = () => {
-    this.triggerEndgame();
+    this.showResult();
     document.querySelector(".tie-audio").play();
   };
-  triggerEndgame = (winner = null) => {
+  showResult = (winner = null) => {
     this.fieldElement.classList.add("unclickable");
     displayWinner(winner);
   };
