@@ -8,6 +8,14 @@
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
+    <div class="game-result"></div>
+    <aside class="sidebar left-sidebar">
+      <div class="player player-one">
+        <p>Player X</p>
+        <p class="score-line">Score: <span class="score">0</span></p>
+      </div>
+      <button class="new-game">Restart</button>
+    </aside>
     <div class="field">
       <div class="cell"></div>
       <div class="cell"></div>
@@ -19,17 +27,13 @@
       <div class="cell"></div>
       <div class="cell"></div>
     </div>
-    <div class="players">
-      <div class="player player-one">
-        Player X: <span class="score">0</span>
-      </div>
+    <aside class="sidebar right-sidebar">
       <div class="player player-two">
-        Player O: <span class="score">0</span>
+        <p>Player O</p>
+        <p class="score-line">Score: <span class="score">0</span></p>
       </div>
-    </div>
-    <div class="button-wrap">
-      <button class="new-game">Restart</button>
-    </div>
+    </aside>
+
     <audio controls class="tie-audio" src="./assets/tie-sound.wav"></audio>
     <audio controls class="o-click-audio" src="./assets/o-click.wav"></audio>
     <audio controls class="x-click-audio" src="./assets/x-click.wav"></audio>

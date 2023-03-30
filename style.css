@@ -7,16 +7,23 @@
   border: none;
 }
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding-top: 5vh;
   background-color: rgb(31, 54, 86);
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+}
+.sidebar {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
 .field {
+  margin: auto;
   width: 600px;
   height: 600px;
-  background-color: green;
+  border: 3px solid coral;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -32,6 +39,7 @@ body {
   border: 3px solid coral;
   font-size: 4em;
   cursor: pointer;
+  transition: background-color 0.2s ease-out;
 }
 .cell:hover {
   background-color: bisque;
@@ -55,14 +63,9 @@ body {
   font-size: 8rem;
 }
 
-.players {
-  display: flex;
-  width: 600px;
-  justify-content: space-between;
-  font-size: 3rem;
-  color: antiquewhite;
-}
 .player {
+  font-size: 4.5rem;
+  color: antiquewhite;
   opacity: 50%;
 }
 .highlight {
@@ -70,31 +73,47 @@ body {
   color: antiquewhite;
   opacity: 100%;
 }
-.button-wrap {
-  padding: 20px 0;
-  width: 600px;
-}
+
 .new-game {
-  width: 200px;
-  height: 60px;
-  background-color: coral;
+  background-color: inherit;
+  border: 4px solid coral;
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
   border-radius: 5px;
+  padding: 20px 60px;
+  text-transform: uppercase;
+
+  transition: background-color 0.2s ease-out, color 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+.new-game:hover {
+  transform: scale(0.98);
+  color: rgb(31, 54, 86);
+  background-color: coral;
 }
 .unclickable {
   pointer-events: none;
   opacity: 50%;
 }
 .game-result {
-  position: absolute;
+  height: 80px;
+  margin-bottom: 20px;
   color: white;
-  top: 32%;
   text-align: center;
-  font-size: 8rem;
+  font-size: 4rem;
   letter-spacing: 0.1rem;
+  grid-column: 1/4;
+}
+.game-result__display {
 }
 audio {
   display: none;
+}
+.score-line {
+  font-size: 2.6rem;
+}
+.score {
+  color: coral;
+  text-shadow: none;
 }

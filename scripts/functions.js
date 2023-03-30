@@ -28,6 +28,7 @@ const isWinCombination = (arr) => {
   }
   return result;
 };
+
 const isFieldFull = (arr) => {
   if (arr.filter((element) => element === "").length === 0) {
     return true;
@@ -54,14 +55,12 @@ const createX = () => {
 };
 
 const displayWinner = (winner) => {
-  let notification = document.createElement("h2");
-  notification.classList.add("game-result");
+  let notification = document.querySelector(".game-result");
+  notification.classList.add("game-result__display");
   if (!winner) {
     notification.innerHTML = "Tie";
   } else notification.innerHTML = `The winner is ${winner}`;
-  document.body.appendChild(notification);
 };
 const removeWinner = () => {
   let notification = document.querySelector(".game-result");
-  if (notification) notification.remove();
 };
