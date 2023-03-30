@@ -83,3 +83,15 @@ body {
   cursor: pointer;
   border-radius: 5px;
 }
+.unclickable {
+  pointer-events: none;
+  opacity: 50%;
+}
+.game-result {
+  position: absolute;
+  color: white;
+  top: 32%;
+  text-align: center;
+  font-size: 8rem;
+  letter-spacing: 0.1rem;
+}

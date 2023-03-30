@@ -52,3 +52,16 @@ const createX = () => {
   cross.innerHTML = "&#x2716;";
   return cross;
 };
+
+const displayWinner = (winner) => {
+  let notification = document.createElement("h2");
+  notification.classList.add("game-result");
+  if (!winner) {
+    notification.innerHTML = "Tie";
+  } else notification.innerHTML = `The winner is ${winner}`;
+  document.body.appendChild(notification);
+};
+const removeWinner = () => {
+  let notification = document.querySelector(".game-result");
+  if (notification) notification.remove();
+};

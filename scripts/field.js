@@ -4,7 +4,7 @@ class Field {
     this.players = new Players();
     this.cells = this.createCells();
     this.newGameButton = document.querySelector(".new-game");
-
+    this.isGameOver = false;
     this.newGameButton.addEventListener("click", this.triggerNewGame);
   }
 
@@ -32,18 +32,27 @@ class Field {
   };
 
   triggerWin = () => {
-    console.log("Winner is: " + this.players.currentPlayer);
-    // this.triggerNewGame();
+    this.triggerEndgame(this.players.currentPlayer);
   };
   triggerTie = () => {
     console.log("Tie");
+    this.triggerEndgame();
+  };
+  triggerEndgame = (winner = null) => {
+    this.fieldElement.classList.add("unclickable");
+    displayWinner(winner);
   };
 
-  triggerNewGame = (event) => {
-    if (event) event.preventDefault();
+  clearField = () => {
     this.cells.forEach((cell) => {
       cell.emptyCell();
     });
     if (this.players.currentPlayer === "O") this.players.switchPlayer();
+  };
+  triggerNewGame = (event) => {
+    this.fieldElement.classList.remove("unclickable");
+    removeWinner();
+    event.preventDefault();
+    this.clearField();
   };
 }
