@@ -12,9 +12,13 @@ class Cell {
     if (!this.isFilled) {
       this.isFilled = true;
 
-      this.field.players.currentPlayer === "X"
-        ? this.cellElement.appendChild(createX())
-        : this.cellElement.appendChild(createCircle());
+      if (this.field.players.currentPlayer === "X") {
+        this.cellElement.appendChild(createX());
+        document.querySelector(".x-click-audio").play();
+      } else {
+        this.cellElement.appendChild(createCircle());
+        document.querySelector(".o-click-audio").play();
+      }
 
       this.field.nextTurn();
     }

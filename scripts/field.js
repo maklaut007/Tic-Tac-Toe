@@ -33,10 +33,11 @@ class Field {
 
   triggerWin = () => {
     this.triggerEndgame(this.players.currentPlayer);
+    document.querySelector(".win-audio").play();
   };
   triggerTie = () => {
-    console.log("Tie");
     this.triggerEndgame();
+    document.querySelector(".tie-audio").play();
   };
   triggerEndgame = (winner = null) => {
     this.fieldElement.classList.add("unclickable");
@@ -50,9 +51,10 @@ class Field {
     if (this.players.currentPlayer === "O") this.players.switchPlayer();
   };
   triggerNewGame = (event) => {
+    event.preventDefault();
     this.fieldElement.classList.remove("unclickable");
     removeWinner();
-    event.preventDefault();
     this.clearField();
+    document.querySelector(".new-game-audio").play();
   };
 }
