@@ -4,14 +4,14 @@ class Players {
     this.playerOneElement = document.querySelector(".player-one");
     this.playerTwoElement = document.querySelector(".player-two");
     this.score = [0, 0];
-    this.highlightCurrentPlayer();
+    this.highlightCurrent();
   }
   switchPlayer = () => {
     this.currentPlayer = this.currentPlayer === "X" ? "O" : "X";
-    this.highlightCurrentPlayer();
+    this.highlightCurrent();
   };
 
-  highlightCurrentPlayer = () => {
+  highlightCurrent = () => {
     if (this.currentPlayer === "X") {
       this.playerOneElement.classList.add("highlight");
       this.playerTwoElement.classList.remove("highlight");

@@ -4,8 +4,7 @@ class Field {
     this.players = new Players();
     this.cells = this.createCells();
     this.newGameButton = document.querySelector(".new-game");
-    this.isGameOver = false;
-    this.newGameButton.addEventListener("click", this.triggerNewGame);
+    this.newGameButton.addEventListener("click", this.startNewGame);
   }
 
   createCells = () => {
@@ -15,18 +14,19 @@ class Field {
   };
 
   nextTurn = () => {
-    this.checkWin();
+    this.checkGameStage();
     this.players.switchPlayer();
   };
 
-  getArrayOfInnerValues() {
+  arrayOfCellValues() {
     return this.cells.map((cell) => {
       if (cell.isFilled) return cell.cellElement.innerHTML;
       else return "";
     });
   }
-  checkWin = () => {
-    let simpleArray = this.getArrayOfInnerValues();
+
+  checkGameStage = () => {
+    let simpleArray = this.arrayOfCellValues();
     if (isWinCombination(simpleArray)) this.triggerWin();
     else if (isFieldFull(simpleArray)) this.triggerTie();
   };
@@ -34,28 +34,31 @@ class Field {
   triggerWin = () => {
     this.showResult(this.players.currentPlayer);
     this.players.addWinnerScore();
-    document.querySelector(".win-audio").play();
+    playMusic(".win-audio");
   };
+
   triggerTie = () => {
     this.showResult();
-    document.querySelector(".tie-audio").play();
+    playMusic(".tie-audio");
   };
+
   showResult = (winner = null) => {
     this.fieldElement.classList.add("unclickable");
     displayWinner(winner);
   };
 
-  clearField = () => {
+  clear = () => {
     this.cells.forEach((cell) => {
       cell.emptyCell();
     });
     if (this.players.currentPlayer === "O") this.players.switchPlayer();
   };
-  triggerNewGame = (event) => {
+
+  startNewGame = (event) => {
     event.preventDefault();
     this.fieldElement.classList.remove("unclickable");
     removeWinner();
-    this.clearField();
-    document.querySelector(".new-game-audio").play();
+    this.clear();
+    playMusic(".new-game-audio");
   };
 }

@@ -36,24 +36,6 @@ const isFieldFull = (arr) => {
   return false;
 };
 
-const createCircle = () => {
-  let circle = document.createElement("div");
-  let innerCircle = document.createElement("div");
-
-  circle.className = "circle";
-  innerCircle.className = "inner-circle";
-
-  circle.appendChild(innerCircle);
-  return circle;
-};
-
-const createX = () => {
-  let cross = document.createElement("div");
-  cross.className = "cross";
-  cross.innerHTML = "&#x2716;";
-  return cross;
-};
-
 const displayWinner = (winner) => {
   let notification = document.querySelector(".game-result");
   notification.classList.add("game-result__display");
@@ -63,4 +45,9 @@ const displayWinner = (winner) => {
 };
 const removeWinner = () => {
   let notification = document.querySelector(".game-result");
+  notification.innerHTML = "";
+};
+
+playMusic = (audioSelector) => {
+  document.querySelector(audioSelector).play();
 };
