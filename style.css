@@ -1,4 +1,4 @@
-@keyframes poppingUp {
+@keyframes popup {
   0% {
     transform: scale(0.5);
   }
@@ -66,7 +66,7 @@ body {
   height: 100px;
   background-color: red;
   border-radius: 100%;
-  animation-name: poppingUp;
+  animation-name: popup;
   animation-duration: 0.5s;
 }
 .inner-circle {
@@ -78,7 +78,7 @@ body {
 .cross {
   font-size: 8rem;
   color: green;
-  animation-name: poppingUp;
+  animation-name: popup;
   animation-duration: 0.5s;
 }
 
