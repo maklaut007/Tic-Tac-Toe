@@ -129,7 +129,7 @@ body {
   pointer-events: none;
   opacity: 50%;
 }
-.game-result {
+.tie-notification {
   height: 80px;
   margin-bottom: 20px;
   color: white;
@@ -138,7 +138,12 @@ body {
   letter-spacing: 0.1rem;
   grid-column: 1/4;
 }
-
+.victory-status_win {
+  color: green;
+}
+.victory-status_lose {
+  color: red;
+}
 audio {
   display: none;
 }

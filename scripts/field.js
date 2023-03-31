@@ -14,8 +14,9 @@ class Field {
   };
 
   nextTurn = () => {
-    this.checkGameStage();
-    this.players.switchPlayer();
+    if (!this.isRoundCompleted()) {
+      this.players.switchPlayer();
+    }
   };
 
   arrayOfCellValues() {
@@ -25,10 +26,16 @@ class Field {
     });
   }
 
-  checkGameStage = () => {
+  isRoundCompleted = () => {
     let simpleArray = this.arrayOfCellValues();
-    if (isWinCombination(simpleArray)) this.triggerWin();
-    else if (isFieldFull(simpleArray)) this.triggerTie();
+    if (isWinCombination(simpleArray)) {
+      this.triggerWin();
+      return true;
+    } else if (isFieldFull(simpleArray)) {
+      this.triggerTie();
+      return true;
+    }
+    return false;
   };
 
   triggerWin = () => {
@@ -38,7 +45,7 @@ class Field {
   };
 
   triggerTie = () => {
-    this.showResult();
+    this.showResult(false);
     playMusic(".tie-audio");
   };
 
@@ -48,6 +55,8 @@ class Field {
   };
 
   clear = () => {
+    this.players.clearVictoryStatus();
+
     this.cells.forEach((cell) => {
       cell.emptyCell();
     });

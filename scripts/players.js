@@ -3,6 +3,11 @@ class Players {
     this.currentPlayer = "X";
     this.playerOneElement = document.querySelector(".player-one");
     this.playerTwoElement = document.querySelector(".player-two");
+    this.playerOneWinStatus =
+      this.playerOneElement.querySelector(".victory-status");
+    this.playerTwoWinStatus =
+      this.playerTwoElement.querySelector(".victory-status");
+
     this.score = [0, 0];
     this.highlightCurrent();
   }
@@ -30,10 +35,23 @@ class Players {
     }
   };
   displayWinner = (isWin) => {
-    let notification = document.querySelector(".game-result");
-    notification.classList.add("game-result__display");
+    console.log(isWin);
     if (!isWin) {
-      notification.innerHTML = "Tie";
-    } else notification.innerHTML = `The winner is ${this.currentPlayer}`;
+      document.querySelector(".tie-notification").innerHTML = "Tie";
+      return;
+    }
+
+    if (this.currentPlayer === "X") {
+      this.playerOneWinStatus.innerHTML = "Winner";
+      this.playerOneWinStatus.classList.add("victory-status_win");
+      this.playerTwoWinStatus.innerHTML = "Loser";
+      this.playerTwoWinStatus.classList.add("victory-status_lose");
+    } else {
+      this.playerTwoWinStatus.innerHTML = "Winner";
+      this.playerOneWinStatus.classList.add("victory-status_lose");
+      this.playerOneWinStatus.innerHTML = "Loser";
+      this.playerTwoWinStatus.classList.add("victory-status_win");
+    }
   };
+  clearVictoryStatus = () => {};
 }

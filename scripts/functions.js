@@ -37,7 +37,7 @@ const isFieldFull = (arr) => {
 };
 
 const removeWinner = () => {
-  let notification = document.querySelector(".game-result");
+  let notification = document.querySelector(".tie-notification");
   notification.innerHTML = "";
 };
 
