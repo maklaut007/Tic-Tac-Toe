@@ -51,7 +51,7 @@ class Field {
 
   showResult = (isWin = false) => {
     this.fieldElement.classList.add("unclickable");
-    this.players.displayWinner(isWin);
+    this.players.displayResults(isWin);
   };
 
   clear = () => {
@@ -64,7 +64,7 @@ class Field {
   startNewGame = (event) => {
     event.preventDefault();
     this.fieldElement.classList.remove("unclickable");
-    this.players.removeWinner();
+    this.players.removeResults();
     this.clear();
     playMusic(".new-game-audio");
   };

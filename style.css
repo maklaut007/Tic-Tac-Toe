@@ -139,7 +139,9 @@ body {
   grid-column: 1/4;
 }
 .victory-status {
-  opacity: 0%;
+  /* opacity: 0%; */
+  font-size: 5rem;
+  margin: 50px 20px;
 }
 .victory-status_win {
   opacity: 100%;
