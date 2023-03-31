@@ -29,4 +29,11 @@ class Players {
       this.playerTwoElement.querySelector("span").innerHTML = this.score[1];
     }
   };
+  displayWinner = (isWin) => {
+    let notification = document.querySelector(".game-result");
+    notification.classList.add("game-result__display");
+    if (!isWin) {
+      notification.innerHTML = "Tie";
+    } else notification.innerHTML = `The winner is ${this.currentPlayer}`;
+  };
 }

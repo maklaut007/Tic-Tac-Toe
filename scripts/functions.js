@@ -36,13 +36,6 @@ const isFieldFull = (arr) => {
   return false;
 };
 
-const displayWinner = (winner) => {
-  let notification = document.querySelector(".game-result");
-  notification.classList.add("game-result__display");
-  if (!winner) {
-    notification.innerHTML = "Tie";
-  } else notification.innerHTML = `The winner is ${winner}`;
-};
 const removeWinner = () => {
   let notification = document.querySelector(".game-result");
   notification.innerHTML = "";

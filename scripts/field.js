@@ -32,7 +32,7 @@ class Field {
   };
 
   triggerWin = () => {
-    this.showResult(this.players.currentPlayer);
+    this.showResult(true);
     this.players.addWinnerScore();
     playMusic(".win-audio");
   };
@@ -42,9 +42,9 @@ class Field {
     playMusic(".tie-audio");
   };
 
-  showResult = (winner = null) => {
+  showResult = (isWin = false) => {
     this.fieldElement.classList.add("unclickable");
-    displayWinner(winner);
+    this.players.displayWinner(isWin);
   };
 
   clear = () => {
