@@ -55,8 +55,6 @@ class Field {
   };
 
   clear = () => {
-    this.players.clearVictoryStatus();
-
     this.cells.forEach((cell) => {
       cell.emptyCell();
     });
@@ -66,7 +64,7 @@ class Field {
   startNewGame = (event) => {
     event.preventDefault();
     this.fieldElement.classList.remove("unclickable");
-    removeWinner();
+    this.players.removeWinner();
     this.clear();
     playMusic(".new-game-audio");
   };

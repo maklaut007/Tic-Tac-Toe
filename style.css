@@ -138,10 +138,15 @@ body {
   letter-spacing: 0.1rem;
   grid-column: 1/4;
 }
+.victory-status {
+  opacity: 0%;
+}
 .victory-status_win {
+  opacity: 100%;
   color: green;
 }
 .victory-status_lose {
+  opacity: 100%;
   color: red;
 }
 audio {

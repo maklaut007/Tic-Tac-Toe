@@ -36,11 +36,6 @@ const isFieldFull = (arr) => {
   return false;
 };
 
-const removeWinner = () => {
-  let notification = document.querySelector(".tie-notification");
-  notification.innerHTML = "";
-};
-
 playMusic = (audioSelector) => {
   document.querySelector(audioSelector).play();
 };
