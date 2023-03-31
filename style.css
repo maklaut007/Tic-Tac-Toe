@@ -1,3 +1,14 @@
+@keyframes poppingUp {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -55,6 +66,8 @@ body {
   height: 100px;
   background-color: red;
   border-radius: 100%;
+  animation-name: poppingUp;
+  animation-duration: 0.5s;
 }
 .inner-circle {
   border-radius: 100%;
@@ -64,6 +77,9 @@ body {
 }
 .cross {
   font-size: 8rem;
+  color: green;
+  animation-name: poppingUp;
+  animation-duration: 0.5s;
 }
 
 .player {
@@ -93,7 +109,7 @@ body {
 }
 .new-game:hover {
   transform: scale(0.98);
-  color: rgb(31, 54, 86);
+  color: #1f3656;
   background-color: coral;
 }
 .unclickable {
@@ -109,8 +125,7 @@ body {
   letter-spacing: 0.1rem;
   grid-column: 1/4;
 }
-.game-result__display {
-}
+
 audio {
   display: none;
 }
