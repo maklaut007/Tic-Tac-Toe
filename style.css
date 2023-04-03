@@ -204,4 +204,7 @@ audio {
   .cross {
     font-size: 18vw;
   }
+  .victory-status {
+    font-size: 2rem;
+  }
 }

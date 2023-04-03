@@ -6,8 +6,8 @@ class Players {
     this.playerOneWinStatus = document.querySelector(".victory-status_one");
     this.playerTwoWinStatus = document.querySelector(".victory-status_two");
     this.tieStatus = document.querySelector(".tie-notification");
-    this.score = [0, 0];
     this.highlightCurrent();
+    this.displayScore();
   }
   switchPlayer = () => {
     this.currentPlayer = this.currentPlayer === "X" ? "O" : "X";
@@ -23,21 +23,37 @@ class Players {
       this.playerOneElement.classList.remove("highlight");
     }
   };
+
+  displayScore = () => {
+    this.playerOneElement.querySelector("span").innerHTML =
+      localStorage.getItem("playerOneScore");
+    this.playerTwoElement.querySelector("span").innerHTML =
+      localStorage.getItem("playerTwoScore");
+  };
+  increaseScore = () => {
+    this.addWinnerScore();
+    this.displayScore();
+  };
+
   addWinnerScore = () => {
-    if (this.currentPlayer === "X") {
-      this.score[0]++;
-      this.playerOneElement.querySelector("span").innerHTML = this.score[0];
-    } else {
-      this.score[1]++;
-      this.playerTwoElement.querySelector("span").innerHTML = this.score[1];
-    }
+    this.currentPlayer === "X"
+      ? this.addOneToLocalVariable("playerOneScore")
+      : this.addOneToLocalVariable("playerTwoScore");
+  };
+
+  addOneToLocalVariable = (val) => {
+    localStorage.setItem(val, +localStorage.getItem(val) + 1);
   };
 
   displayResults = (isWin) => {
     if (!isWin) {
       this.displayTie();
-      return;
+    } else {
+      this.displayWinner();
     }
+  };
+
+  displayWinner = () => {
     this.currentPlayer === "X"
       ? this.changePlayersStatus(
           this.playerOneWinStatus,
@@ -48,9 +64,11 @@ class Players {
           this.playerOneWinStatus
         );
   };
+
   displayTie = () => {
     this.tieStatus.innerHTML = "Tie";
   };
+
   changePlayersStatus = (winner, loser) => {
     winner.innerHTML = "Winner";
     winner.classList.add("victory-status_win");

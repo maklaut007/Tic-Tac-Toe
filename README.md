@@ -40,7 +40,7 @@ This project is written in pure JavaScript and uses classes to implement OOP pro
 - Display the score :heavy_check_mark:
 - Animations on box click :heavy_check_mark:
 - Styled for mobile devices :heavy_check_mark:
-- Local storage for score
+- Local storage for score :heavy_check_mark:
 
 ### Gold
 

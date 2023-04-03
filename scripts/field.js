@@ -41,7 +41,7 @@ class Field {
 
   triggerWin = () => {
     this.showResult(true);
-    this.players.addWinnerScore();
+    this.players.increaseScore();
     playMusic(".win-audio");
   };
 
