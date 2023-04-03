@@ -9,21 +9,18 @@ class Cell {
 
   click = (event) => {
     event.preventDefault();
-    if (this.isFilled) return;
-
-    this.isFilled = true;
-    if (this.field.players.currentPlayer === "X") {
-      this.createX();
-      playMusic(".x-click-audio");
-    } else {
-      playMusic(".o-click-audio");
-      this.createO();
+    if (!this.isFilled) {
+      this.fill();
+      this.field.nextTurn();
     }
-
-    this.field.nextTurn();
   };
 
-  emptyCell = () => {
+  fill = () => {
+    this.isFilled = true;
+    this.field.players.currentPlayer === "X" ? this.createX() : this.createO();
+  };
+
+  clear = () => {
     let randomTimer = Math.floor(Math.random() * 700);
     setTimeout(() => {
       this.rotate();
@@ -33,6 +30,7 @@ class Cell {
       this.cellElement.innerHTML = "";
     }, randomTimer + 500);
   };
+
   rotate = () => {
     if (this.cellElement.classList.contains("rotated")) {
       this.cellElement.classList.remove("rotated");
@@ -40,6 +38,7 @@ class Cell {
   };
 
   createO = () => {
+    playMusic(".o-click-audio");
     let circle = document.createElement("div");
     let innerCircle = document.createElement("div");
 
@@ -51,6 +50,7 @@ class Cell {
   };
 
   createX = () => {
+    playMusic(".x-click-audio");
     let cross = document.createElement("div");
     cross.className = "cross";
     cross.innerHTML = "&#x2716;";

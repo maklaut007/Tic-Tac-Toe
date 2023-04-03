@@ -32,23 +32,32 @@ class Players {
       this.playerTwoElement.querySelector("span").innerHTML = this.score[1];
     }
   };
+
   displayResults = (isWin) => {
     if (!isWin) {
-      this.tieStatus.innerHTML = "Tie";
+      this.displayTie();
       return;
     }
-    if (this.currentPlayer === "X") {
-      this.playerOneWinStatus.innerHTML = "Winner";
-      this.playerOneWinStatus.classList.add("victory-status_win");
-      this.playerTwoWinStatus.innerHTML = "Loser";
-      this.playerTwoWinStatus.classList.add("victory-status_lose");
-    } else {
-      this.playerTwoWinStatus.innerHTML = "Winner";
-      this.playerOneWinStatus.classList.add("victory-status_lose");
-      this.playerOneWinStatus.innerHTML = "Loser";
-      this.playerTwoWinStatus.classList.add("victory-status_win");
-    }
+    this.currentPlayer === "X"
+      ? this.changePlayersStatus(
+          this.playerOneWinStatus,
+          this.playerTwoWinStatus
+        )
+      : this.changePlayersStatus(
+          this.playerTwoWinStatus,
+          this.playerOneWinStatus
+        );
   };
+  displayTie = () => {
+    this.tieStatus.innerHTML = "Tie";
+  };
+  changePlayersStatus = (winner, loser) => {
+    winner.innerHTML = "Winner";
+    winner.classList.add("victory-status_win");
+    loser.innerHTML = "Loser";
+    loser.classList.add("victory-status_lose");
+  };
+
   removeResults = () => {
     this.playerOneWinStatus.classList.remove("victory-status_win");
     this.playerOneWinStatus.classList.remove("victory-status_lose");

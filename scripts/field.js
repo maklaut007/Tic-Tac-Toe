@@ -31,7 +31,8 @@ class Field {
     if (isWinCombination(simpleArray)) {
       this.triggerWin();
       return true;
-    } else if (isFieldFull(simpleArray)) {
+    }
+    if (isFieldFull(simpleArray)) {
       this.triggerTie();
       return true;
     }
@@ -54,9 +55,9 @@ class Field {
     this.players.displayResults(isWin);
   };
 
-  clear = () => {
+  clean = () => {
     this.cells.forEach((cell) => {
-      cell.emptyCell();
+      cell.clear();
     });
     if (this.players.currentPlayer === "O") this.players.switchPlayer();
   };
@@ -65,7 +66,7 @@ class Field {
     event.preventDefault();
     this.fieldElement.classList.remove("unclickable");
     this.players.removeResults();
-    this.clear();
+    this.clean();
     playMusic(".new-game-audio");
   };
 }

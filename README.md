@@ -15,7 +15,7 @@ This project is written in pure JavaScript and uses classes to implement OOP pro
 - The game board is represented by a 3x3 grid, and players take turns placing their mark (X or O) on an empty cell.
   ![My Image](https://github.com/maklaut007/Tic-Tac-Toe/blob/main/assets/readme/game-board.png)
 - The game ends when one player gets three marks in a row or when the board is full and no player has won.
-
+  ![My Image](https://github.com/maklaut007/Tic-Tac-Toe/blob/main/assets/readme/winner.png)
 - In case of one of the player winning, the corresponding player score will increase by 1
   ![My Image](https://github.com/maklaut007/Tic-Tac-Toe/blob/main/assets/readme/score-1.png)
   ![My Image](https://github.com/maklaut007/Tic-Tac-Toe/blob/main/assets/readme/score-2.png)
@@ -39,7 +39,7 @@ This project is written in pure JavaScript and uses classes to implement OOP pro
 - Sound effects :heavy_check_mark:
 - Display the score :heavy_check_mark:
 - Animations on box click :heavy_check_mark:
-- Styled for mobile devices
+- Styled for mobile devices :heavy_check_mark:
 - Local storage for score
 
 ### Gold
